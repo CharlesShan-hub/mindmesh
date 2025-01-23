@@ -1,0 +1,12 @@
+[project]
+name = "mindmesh"
+version = "0.0.1"
+description = "utils for PKM"
+authors = [{name = "Charles", email = "charles.shht@gmail.com"}]
+requires-python = ">=3.7"
+dependencies = []
+license = {text = "MIT License"}
+
+[build-system]
+requires = ["setuptools>=42", "wheel"]
+build-backend = "setuptools.build_meta"
