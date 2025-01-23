@@ -12,6 +12,9 @@ def convert(src: Path, dist: Path, src_kind: str,dist_kind: str):
     src_path = Path(src)
     dist_path = Path(dist)
 
+    if src_kind == 'obsidian' and dist_kind == 'origin':
+        converter = mm.ObsidianMarkdown()
+
     for file in src_path.rglob("*"):
         if not file.is_file() or file.name == '.DS_Store':
             continue
@@ -25,7 +28,6 @@ def convert(src: Path, dist: Path, src_kind: str,dist_kind: str):
         if file.suffix.lower() == ".md":
             with file.open('r', encoding='utf-8') as f:
                 content = f.read()
-            converter = mm.ObsidianMarkdown()
             content = converter(content)
             with (dist_path / relative_path).open('w', encoding='utf-8') as f:
                 f.write(content)
